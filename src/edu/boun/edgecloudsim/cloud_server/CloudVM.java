@@ -1,15 +1,15 @@
 /*
  * Title:        EdgeCloudSim - CloudVM
- * 
- * Description: 
+ *
+ * Description:
  * CloudVM adds vm type information over CloudSim's VM class
- *               
+ *
  * Licence:      GPL - http://www.gnu.org/copyleft/gpl.html
  * Copyright (c) 2017, Bogazici University, Istanbul, Turkey
  */
 
 package edu.boun.edgecloudsim.cloud_server;
-
+//Import required libraries
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,23 +18,26 @@ import org.cloudbus.cloudsim.Vm;
 
 import edu.boun.edgecloudsim.core.SimSettings;
 
+//Public class CloudVM
 public class CloudVM extends Vm {
 	private SimSettings.VM_TYPES type;
 
+	//Cloud VM requires ID userID MIPS Pes RAM Bw Size VMM
+	//CloudletScheduler utilised
 	public CloudVM(int id, int userId, double mips, int numberOfPes, int ram,
 			long bw, long size, String vmm, CloudletScheduler cloudletScheduler) {
 		super(id, userId, mips, numberOfPes, ram, bw, size, vmm, cloudletScheduler);
 
 		type = SimSettings.VM_TYPES.CLOUD_VM;
 	}
-
+	//Required for varied VM types
 	public SimSettings.VM_TYPES getVmType(){
 		return type;
 	}
 
 	/**
 	 *  dynamically reconfigures the mips value of a  VM in CloudSim
-	 * 
+	 *
 	 * @param mips new mips value for this VM.
 	 */
 	public void reconfigureMips(double mips){
