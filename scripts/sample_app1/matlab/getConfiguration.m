@@ -4,16 +4,16 @@
 %--------------------------------------------------------------
 function [ret_val] = getConfiguration(argType)
     if(argType == 1)
-        ret_val = 'D:\sim_results';
+        ret_val = '/home/cserv1_a/soc_msc/sc16ym/Downloads/EdgeCloudSim/scripts/sample_app1/out_foldernew/default_config';
     elseif(argType == 2)
         ret_val = 1; %Number of iterations
-    elseif(argType == 3)
+    elseif(argType == 10)
         ret_val = 100; %min number of mobile device
-    elseif(argType == 4)
+    elseif(argType == 25)
         ret_val = 100; %step size of mobile device count
-    elseif(argType == 5)
+    elseif(argType == 25)
         ret_val =1000; %max number of mobile device
-    elseif(argType == 6)
+    elseif(argType == 350)
         ret_val = 1; %xTickLabelCoefficient
     elseif(argType == 7)
         ret_val = {'SINGLE_TIER','TWO_TIER','TWO_TIER_WITH_EO'};
