@@ -1,12 +1,12 @@
 /*
  * Title:        EdgeCloudSim - Idle/Active Load Generator implementation
- * 
- * Description: 
+ *
+ * Description:
  * IdleActiveLoadGenerator implements basic load generator model where the
  * mobile devices generate task in active period and waits in idle period.
  * Task interarrival time (load generation period), Idle and active periods
  * are defined in the configuration file.
- * 
+ *
  * Licence:      GPL - http://www.gnu.org/copyleft/gpl.html
  * Copyright (c) 2017, Bogazici University, Istanbul, Turkey
  */
@@ -31,20 +31,20 @@ public class IdleActiveLoadGenerator extends LoadGeneratorModel{
 	@Override
 	public void initializeModel() {
 		taskList = new ArrayList<TaskProperty>();
-		
+
 		//exponential number generator for file input size, file output size and task length
 		ExponentialDistribution[][] expRngList = new ExponentialDistribution[SimSettings.getInstance().getTaskLookUpTable().length][3];
-		
+
 		//create random number generator for each place
 		for(int i=0; i<SimSettings.getInstance().getTaskLookUpTable().length; i++) {
 			if(SimSettings.getInstance().getTaskLookUpTable()[i][0] ==0)
 				continue;
-			
+
 			expRngList[i][0] = new ExponentialDistribution(SimSettings.getInstance().getTaskLookUpTable()[i][5]);
 			expRngList[i][1] = new ExponentialDistribution(SimSettings.getInstance().getTaskLookUpTable()[i][6]);
 			expRngList[i][2] = new ExponentialDistribution(SimSettings.getInstance().getTaskLookUpTable()[i][7]);
 		}
-		
+
 		//Each mobile device utilizes an app type (task type)
 		taskTypeOfDevices = new int[numberOfMobileDevices];
 		for(int i=0; i<numberOfMobileDevices; i++) {
@@ -62,14 +62,14 @@ public class IdleActiveLoadGenerator extends LoadGeneratorModel{
 				SimLogger.printLine("Impossible is occurred! no random task type!");
 				continue;
 			}
-			
+
 			taskTypeOfDevices[i] = randomTaskType;
-			
+
 			double poissonMean = SimSettings.getInstance().getTaskLookUpTable()[randomTaskType][2];
 			double activePeriod = SimSettings.getInstance().getTaskLookUpTable()[randomTaskType][3];
 			double idlePeriod = SimSettings.getInstance().getTaskLookUpTable()[randomTaskType][4];
 			double activePeriodStartTime = SimUtils.getRandomDoubleNumber(
-					SimSettings.CLIENT_ACTIVITY_START_TIME, 
+					SimSettings.CLIENT_ACTIVITY_START_TIME,
 					SimSettings.CLIENT_ACTIVITY_START_TIME + activePeriod);  //active period starts shortly after the simulation started (e.g. 10 seconds)
 			double virtualTime = activePeriodStartTime;
 
@@ -83,13 +83,13 @@ public class IdleActiveLoadGenerator extends LoadGeneratorModel{
 				}
 				//SimLogger.printLine(virtualTime + " -> " + interval + " for device " + i + " time ");
 				virtualTime += interval;
-				
+
 				if(virtualTime > activePeriodStartTime + activePeriod){
 					activePeriodStartTime = activePeriodStartTime + activePeriod + idlePeriod;
 					virtualTime = activePeriodStartTime;
 					continue;
 				}
-				
+
 				taskList.add(new TaskProperty(i,randomTaskType, virtualTime, expRngList));
 			}
 		}
