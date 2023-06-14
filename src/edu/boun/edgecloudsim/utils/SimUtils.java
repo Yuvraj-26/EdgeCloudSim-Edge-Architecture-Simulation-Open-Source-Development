@@ -1,8 +1,8 @@
 /*
  * Title:        EdgeCloudSim - Simulation Utils
- * 
+ *
  * Description:  Utility class providing helper functions
- * 
+ *
  * Licence:      GPL - http://www.gnu.org/copyleft/gpl.html
  * Copyright (c) 2017, Bogazici University, Istanbul, Turkey
  */
@@ -29,14 +29,14 @@ public class SimUtils {
 		//return pd.sample();
 		double range = end - start;
 		double fraction = (range * RNG.nextDouble());
-		return (fraction + start); 
+		return (fraction + start);
 	}
 
 	public static long getRandomLongNumber(long start, long end) {
 		//return pd.sample();
 		long range = (long)end - (long)start + 1;
 		long fraction = (long)(range * RNG.nextDouble());
-		return (fraction + start); 
+		return (fraction + start);
 	}
 
 	public static void cleanOutputFolder(String outputFolder){
@@ -51,14 +51,14 @@ public class SimUtils {
 					if(!f.delete())
 					{
 						SimLogger.printLine("file cannot be cleared: " + f.getAbsolutePath());
-						System.exit(1);
+						System.exit(0); 					//System.exit(1);
 					}
 				}
 			}
 		}
 		else {
 			SimLogger.printLine("Output folder is not available: " + outputFolder);
-			System.exit(1);
+			System.exit(0); 					//System.exit(1);
 		}
 	}
 
