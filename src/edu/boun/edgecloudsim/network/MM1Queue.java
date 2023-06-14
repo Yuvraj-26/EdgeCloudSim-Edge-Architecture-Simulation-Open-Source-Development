@@ -1,9 +1,9 @@
 /*
  * Title:        EdgeCloudSim - M/M/1 Queue model implementation
- * 
- * Description: 
+ *
+ * Description:
  * MM1Queue implements M/M/1 Queue model for WLAN and WAN communication
- * 
+ *
  * Licence:      GPL - http://www.gnu.org/copyleft/gpl.html
  * Copyright (c) 2017, Bogazici University, Istanbul, Turkey
  */
@@ -150,17 +150,17 @@ public class MM1Queue extends NetworkModel {
 		return deviceCount;
 	}
 
-	private double calculateMM1(double propagationDelay, int bandwidth /*Kbps*/, double PoissonMean, double avgTaskSize /*KB*/, int deviceCount){
+	private double calculateMM1(double propogationDelay, int bandwidth /*Kbps*/, double PoissonMean, double avgTaskSize /*KB*/, int deviceCount){
 		double Bps=0, mu=0, lamda=0;
 
 		avgTaskSize = avgTaskSize * (double)1000; //convert from KB to Byte
 
 		Bps = bandwidth * (double)1000 / (double)8; //convert from Kbps to Byte per seconds
-		lamda = ((double)1/(double)PoissonMean); //task per seconds
+    lamda = ((double)1/(double)PoissonMean); //task per seconds
 		mu = Bps / avgTaskSize ; //task per seconds
 		double result = (double)1 / (mu-lamda*(double)deviceCount);
 
-		result += propagationDelay;
+		result += propogationDelay;
 
 		return (result > 5) ? -1 : result;
 	}
@@ -182,7 +182,7 @@ public class MM1Queue extends NetworkModel {
 	}
 
 	private double getWanDownloadDelay(Location accessPointLocation, double time) {
-		return calculateMM1(SimSettings.getInstance().getWanPropagationDelay(),
+		return calculateMM1(SimSettings.getInstance().getWanPropogationDelay(),
 				SimSettings.getInstance().getWanBandwidth(),
 				WanPoissonMean,
 				avgTaskOutputSize,
@@ -190,7 +190,7 @@ public class MM1Queue extends NetworkModel {
 	}
 
 	private double getWanUploadDelay(Location accessPointLocation, double time) {
-		return calculateMM1(SimSettings.getInstance().getWanPropagationDelay(),
+		return calculateMM1(SimSettings.getInstance().getWanPropogationDelay(),
 				SimSettings.getInstance().getWanBandwidth(),
 				WanPoissonMean,
 				avgTaskInputSize,
