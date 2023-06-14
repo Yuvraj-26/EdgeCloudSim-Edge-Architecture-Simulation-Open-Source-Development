@@ -5,6 +5,33 @@
 
 EdgeCloudSim provides a simulation environment specific to Edge Computing scenarios where it is possible to conduct experiments that considers both computational and networking resources. EdgeCloudSim is based on CloudSim but adds considerable functionality so that it can be efficiently used for Edge Computing scenarios. EdgeCloudSim is an open source tool and any contributions are welcome. If you want to contribute EdgeCloudSim, please check below feature list and the [contributing guidelines](/CONTRIBUTING.md). If you want to use EdgeCloudSim in your research work, please cite our paper [[3]](https://onlinelibrary.wiley.com/doi/abs/10.1002/ett.3493).
 
+# My Contributions
+1. The project investigated several types of edge architectures,
+principally single-tier, two-tier, and two-tier with Edge Orchestrator (EO)
+deployed in a specific domain to determine the effect of computational and networking system parameters on performance results.
+2. Experiment results were formatted graphically into readable graphs for ease of interpretation.
+3. Created TaskProperty Class in TaskProperty module which is a custom class used in Load Generator Model to store tasks information (EdgeTask)
+4. Fixed major bugs to allow the simulator to work in the specific Edge Environment for a Facial recognition / Augmented reality application utilised by 350 devices. Thus, identifying if the architecture remains effective after increasing the number of users (load condition) substantially.
+5. Modified the EdgeCloudSim Sim logger to allow accurate and reliable simulation of two or more scalability parameters simultaneously.
+ Permitting the investigation of both WLAN bandwidth and VM processing speed at the same time on each Edge architecture.
+6. Provided extensive research and evaluation of simulation results to explain Task migration among the Edge or Cloud VMs
+7. Generated valid simulation data using EdgeCloudSim, backed by a literature review of leading edge computing research, to provide valuable recommendations for future IoT applications.
+
+# Future Work
+1. Conducting further experiments using a wider combination of scalability parameters.
+2. Considering energy-aware edge server placement to improve scalability.
+3. Performing a reliability analysis of edge scenarios to understand the exact behaviour
+and impact of high mobility of IoT devices on edge infrastructure.
+4. A deeper analysis of simulation results for the edge servers and the cloud separately
+to realise instances where offloading to the cloud provides favourable performance.
+For instance, finding whether local processing, edge server offloading, or remote
+cloud server offloading provides enhanced performance.
+5. Further encompassing EdgeCloudSim to evaluate the computational cost of
+increasing scalability parameters.
+6. Utilising different edge orchestration policies to investigate better scalability.
+7. Evaluating the effect of different tasks sizes and task migration among edge nodes.
+8. Real-world software deployment to confirm the validity and reliability of simulation results.
+
 ## EdgeCloudSim Modified Source Files
 SOURCE FILES
 /edgecloudsim/applications/sample_app1
