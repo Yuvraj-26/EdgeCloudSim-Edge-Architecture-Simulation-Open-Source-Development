@@ -1,11 +1,11 @@
 /*
  * Title:        EdgeCloudSim - Basic Edge Orchestrator implementation
- * 
- * Description: 
+ *
+ * Description:
  * BasicEdgeOrchestrator implements basic algorithms which are
  * first/next/best/worst/random fit algorithms while assigning
  * requests to the edge devices.
- *               
+ *
  * Licence:      GPL - http://www.gnu.org/copyleft/gpl.html
  * Copyright (c) 2017, Bogazici University, Istanbul, Turkey
  */
@@ -32,7 +32,7 @@ public class BasicEdgeOrchestrator extends EdgeOrchestrator {
 	private int numberOfHost; //used by load balancer
 	private int lastSelectedHostIndex; //used by load balancer
 	private int[] lastSelectedVmIndexes; //used by each host individually
-	
+
 	public BasicEdgeOrchestrator(String _policy, String _simScenario) {
 		super(_policy, _simScenario);
 	}
@@ -40,7 +40,7 @@ public class BasicEdgeOrchestrator extends EdgeOrchestrator {
 	@Override
 	public void initialize() {
 		numberOfHost=SimSettings.getInstance().getNumOfEdgeHosts();
-		
+
 		lastSelectedHostIndex = -1;
 		lastSelectedVmIndexes = new int[numberOfHost];
 		for(int i=0; i<numberOfHost; i++)
@@ -53,20 +53,20 @@ public class BasicEdgeOrchestrator extends EdgeOrchestrator {
 		if(!simScenario.equals("SINGLE_TIER")){
 			//decide to use cloud or Edge VM
 			int CloudVmPicker = SimUtils.getRandomNumber(0, 100);
-			
+
 			if(CloudVmPicker <= SimSettings.getInstance().getTaskLookUpTable()[task.getTaskType()][1])
 				result = SimSettings.CLOUD_DATACENTER_ID;
 			else
 				result = SimSettings.GENERIC_EDGE_DEVICE_ID;
 		}
-		
+
 		return result;
 	}
-	
+
 	@Override
 	public Vm getVmToOffload(Task task, int deviceId) {
 		Vm selectedVM = null;
-		
+
 		if(deviceId == SimSettings.CLOUD_DATACENTER_ID){
 			//Select VM on cloud devices via Least Loaded algorithm!
 			double selectedVmCapacity = 0; //start with min value
@@ -87,19 +87,19 @@ public class BasicEdgeOrchestrator extends EdgeOrchestrator {
 			selectedVM = selectVmOnLoadBalancer(task);
 		else
 			selectedVM = selectVmOnHost(task);
-		
+
 		return selectedVM;
 	}
-	
+
 	public EdgeVM selectVmOnHost(Task task){
 		EdgeVM selectedVM = null;
-		
+
 		Location deviceLocation = SimManager.getInstance().getMobilityModel().getLocation(task.getMobileDeviceId(), CloudSim.clock());
 		//in our scenasrio, serving wlan ID is equal to the host id
 		//because there is only one host in one place
 		int relatedHostId=deviceLocation.getServingWlanId();
 		List<EdgeVM> vmArray = SimManager.getInstance().getEdgeServerManager().getVmList(relatedHostId);
-		
+		// Implement the different algorithms required for task allocation to Edge IOT devices
 		if(policy.equalsIgnoreCase("RANDOM_FIT")){
 			int randomIndex = SimUtils.getRandomNumber(0, vmArray.size()-1);
 			double requiredCapacity = ((CpuUtilizationModel_Custom)task.getUtilizationModelCpu()).predictUtilization(vmArray.get(randomIndex).getVmType());
@@ -152,18 +152,18 @@ public class BasicEdgeOrchestrator extends EdgeOrchestrator {
 				tries++;
 			}
 		}
-		
+
 		return selectedVM;
 	}
 
 	public EdgeVM selectVmOnLoadBalancer(Task task){
 		EdgeVM selectedVM = null;
-		
+
 		if(policy.equalsIgnoreCase("RANDOM_FIT")){
 			int randomHostIndex = SimUtils.getRandomNumber(0, numberOfHost-1);
 			List<EdgeVM> vmArray = SimManager.getInstance().getEdgeServerManager().getVmList(randomHostIndex);
 			int randomIndex = SimUtils.getRandomNumber(0, vmArray.size()-1);
-			
+
 			double requiredCapacity = ((CpuUtilizationModel_Custom)task.getUtilizationModelCpu()).predictUtilization(vmArray.get(randomIndex).getVmType());
 			double targetVmCapacity = (double)100 - vmArray.get(randomIndex).getCloudletScheduler().getTotalUtilizationOfCpu(CloudSim.clock());
 			if(requiredCapacity <= targetVmCapacity)
@@ -211,7 +211,7 @@ public class BasicEdgeOrchestrator extends EdgeOrchestrator {
 			}
 		}
 		else if(policy.equalsIgnoreCase("NEXT_FIT")){
-			int hostCheckCounter = 0;	
+			int hostCheckCounter = 0;
 			while(selectedVM == null && hostCheckCounter < numberOfHost){
 				int tries = 0;
 				lastSelectedHostIndex = (lastSelectedHostIndex+1) % numberOfHost;
@@ -231,25 +231,25 @@ public class BasicEdgeOrchestrator extends EdgeOrchestrator {
 				hostCheckCounter++;
 			}
 		}
-		
+
 		return selectedVM;
 	}
 
 	@Override
 	public void processEvent(SimEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void shutdownEntity() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void startEntity() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
