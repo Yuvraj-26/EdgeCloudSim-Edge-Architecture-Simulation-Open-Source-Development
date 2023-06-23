@@ -1,7 +1,6 @@
 # EdgeCloudSim
 # EDGE CLOUD COMPUTING Project
 # Created by Yuvraj M
-# View Yuvraj_M_Results_Report.pdf for investigation
 
 EdgeCloudSim provides a simulation environment specific to Edge Computing scenarios where it is possible to conduct experiments that considers both computational and networking resources. EdgeCloudSim is based on CloudSim but adds considerable functionality so that it can be efficiently used for Edge Computing scenarios. EdgeCloudSim is an open source tool and any contributions are welcome. If you want to contribute EdgeCloudSim, please check below feature list and the [contributing guidelines](/CONTRIBUTING.md). If you want to use EdgeCloudSim in your research work, please cite our paper [[3]](https://onlinelibrary.wiley.com/doi/abs/10.1002/ett.3493).
 
@@ -41,15 +40,15 @@ increasing scalability parameters.
 ## Initial Experiment Graphs / Results
 
 <p align="center">
-  <img src="/doc/images/Initial.jpg" width="65%">
+  <img src="/doc/images/initial.jpg" width="65%">
 </p>
 
 <p align="center">
-  <img src="/doc/images/Initial2.jpg" width="65%">
+  <img src="/doc/images/initial2.jpg" width="65%">
 </p>
 
 <p align="center">
-  <img src="/doc/images/Initial3.jpg" width="65%">
+  <img src="/doc/images/initial3.jpg" width="65%">
 </p>
 
 ## Final Graphs / results
@@ -274,17 +273,6 @@ tail -f output/date/ite_1.log
 
 ## Analyzing the Results
 At the end of each iteration, simulation results will be compressed in the *output/date/ite_n.tgz* files. When you extract these tgz files, you will see lots of log file in csv format. You can find matlab files which can plot graphics by using these files under *scripts/sample_application/matlab* folder. You can also write other scripts (e.g. python scripts) with the same manner of matlab plotter files.
-
-## Example Output of EdgeCloudSim
-You can plot lots of graphics by using the result of EdgeCloudSim. Some examples are given below:
-
-![Alt text](/doc/images/result1.png?raw=true) ![Alt text](/doc/images/result2.png?raw=true)
-
-![Alt text](/doc/images/result4.png?raw=true) ![Alt text](/doc/images/result5.png?raw=true)
-
-![Alt text](/doc/images/result6.png?raw=true) ![Alt text](/doc/images/result3.png?raw=true)
-
-![Alt text](/doc/images/result7.png?raw=true) ![Alt text](/doc/images/result8.png?raw=true)
 
 ## Publications
 **[1]** C. Sonmez, A. Ozgovde and C. Ersoy, "[EdgeCloudSim: An environment for performance evaluation of Edge Computing systems](http://ieeexplore.ieee.org/document/7946405/)," *2017 Second International Conference on Fog and Mobile Edge Computing (FMEC)*, Valencia, 2017, pp. 39-44.
