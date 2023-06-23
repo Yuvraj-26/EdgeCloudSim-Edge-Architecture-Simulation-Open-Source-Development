@@ -40,6 +40,51 @@ increasing scalability parameters.
 
 ## Initial Experiment Graphs / Results
 
+<p align="center">
+  <img src="/doc/images/Initial.jpg" width="65%">
+</p>
+
+<p align="center">
+  <img src="/doc/images/Initial2.jpg" width="65%">
+</p>
+
+<p align="center">
+  <img src="/doc/images/Initial3.jpg" width="65%">
+</p>
+
+## Final Graphs / results
+
+<p align="center">
+  <img src="/doc/images/1.jpg" width="65%">
+</p>
+
+<p align="center">
+  <img src="/doc/images/2.jpg" width="65%">
+</p>
+
+<p align="center">
+  <img src="/doc/images/3.jpg" width="65%">
+</p>
+
+<p align="center">
+  <img src="/doc/images/4.jpg" width="65%">
+</p>
+
+<p align="center">
+  <img src="/doc/images/5.jpg" width="65%">
+</p>
+
+<p align="center">
+  <img src="/doc/images/6.jpg" width="65%">
+</p>
+
+<p align="center">
+  <img src="/doc/images/7.jpg" width="65%">
+</p>
+
+
+
+
 ## EdgeCloudSim Modified Source Files
 SOURCE FILES
 /edgecloudsim/applications/sample_app1
