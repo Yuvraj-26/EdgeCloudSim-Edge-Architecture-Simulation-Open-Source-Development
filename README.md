@@ -35,7 +35,7 @@ increasing scalability parameters.
 ## Hypothesis Verification
 
 <p align="center">
-  <img src="/doc/images/hypothesis.png" width="65%">
+  <img src="/doc/images/hypothesis.jpg" width="65%">
 </p>
 
 ## Initial Experiment Graphs / Results
