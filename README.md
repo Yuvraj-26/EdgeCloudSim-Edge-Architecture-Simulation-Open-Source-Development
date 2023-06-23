@@ -32,6 +32,14 @@ increasing scalability parameters.
 7. Evaluating the effect of different tasks sizes and task migration among edge nodes.
 8. Real-world software deployment to confirm the validity and reliability of simulation results.
 
+## Hypothesis Verification
+
+<p align="center">
+  <img src="/doc/images/hypothesis.png" width="65%">
+</p>
+
+## Initial Experiment Graphs / Results
+
 ## EdgeCloudSim Modified Source Files
 SOURCE FILES
 /edgecloudsim/applications/sample_app1
