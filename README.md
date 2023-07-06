@@ -1,5 +1,5 @@
 # EdgeCloudSim
-# Edge / Cloud Architecture Simulation Emperical Investigation
+# Edge / Cloud Architecture Simulation 
 Created by Yuvraj M
 
 ## Project Summary
