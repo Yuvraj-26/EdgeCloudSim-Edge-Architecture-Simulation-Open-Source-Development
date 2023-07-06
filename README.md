@@ -190,13 +190,17 @@ At the end of each iteration, simulation results will be compressed in the *outp
 
 **SOURCE FILES**
 
-/edgecloudsim/applications/sample_app1 | MainApp.java DEFAULT
+/edgecloudsim/applications/sample_app1
+
+MainApp.java DEFAULT
 SampleScenarioFactory.java DEFAULT 
-/edgecloudsim/cloud_server
+
+/edgecloudsim/cloud_server 
 CloudServerManager.java DEFAULT
 CloudVM.java DEFAULT
 CloudVmAllocationPOlicy_Custom.java DEFAULT
 DefaultCloudServerManager.java DEFAULT
+
 /edgecloudsim/core
 Scenariofactory.java MODIFIED
 SimManager.java
@@ -207,25 +211,31 @@ CpuUtilizationModelCustom.java MODIFIED
 DefaultMobileDeviceManger.java MODIFIED
 MobileDeviceManager.java DEFAULT
 Task.java MODIFIED
-/edgecloudsim/edge_orchestrator
+
+**/edgecloudsim/edge_orchestrator**
 BasicEdgeOrchestrator.java DEFUALT
 EdgeOrchestrator.java DEFAULT
-/edgecloudsim/edge_server
+
+**/edgecloudsim/edge_server**
 DefaultEdgeServerManager.java DEFAULT
 EdgeHost.java DEFAULT
 EdgeServerManager.java DEFAULT
 EdgeVM.java MODIFIED
 EdgeVmAllocationPolicy_Custom.java DEFAULT
-/edgecloudsim/mobility
+
+**/edgecloudsim/mobility**
 MobilityModel.java MODIFIED
 NomadicMobility.java DEFAULT
-/edgecloudsim/network
+
+**/edgecloudsim/network**
 MM1Queue.java DEFAULT
 NetworkModel.java
-/edgecloudsim/task_generator
+
+**/edgecloudsim/task_generator**
 IdleActiveLoadGenerator.java DEFAULT
 LoadGeneratorModel.java MODIFIED
-/edgecloudsim/utils
+
+**/edgecloudsim/utils**
 Location.java MODIFIED
 PoissonDist.java DEFAULT
 SimLogger.java MODIFIED
@@ -238,31 +248,31 @@ TaskProperty.java MODIFIED
 
 out_folders store the simulation experiment results in the form of ite10 SIMRESULT files and ite10.log files. Each simulation experiment is averaged over 10 iterations.
 
-WLAN Bandwdith simulation result scripts
+**WLAN Bandwdith simulation result scripts**
 out_folderWLAN300
 out_folderWLAN500
 out_folderWLAN700
 out_folderWLAN900
 
-VM Processing Speed result scripts
+**VM Processing Speed result scripts**
 out_folderVM1000
 out_folderVM2000
 out_folderVM3000
 out_folderVM4000
 
-Sub_experiment for testing VM Processing Speed MIPS
+**Sub_experiment for testing VM Processing Speed MIPS**
 out_folder1k
 out_folder2k
 out_folder3k
 out_folder4k
 
-Number of Edge Servers result scripts
+**Number of Edge Servers result scripts**
 out_folder6servers_222 (6 servers 2 per attractive location)
 out_folder12servers_444 (12 servers 4 per attractive location)
 out_folder18servers_666 (18 servers 6 per attractive location)
 out_folder24servers_888 (24 servers 8 per attractive location)
 
-BOTH WLAN Bandwdith and VM Processing Speed result scripts
+**BOTH WLAN Bandwdith and VM Processing Speed result scripts**
 out_folderboth300_1000 (300 WLAN Bandwdith and 1000 MIPS)
 out_folderboth500_2000 (500 WLAN Bandwdith and 2000 MIPS)
 out_folderboth700_3000 (700 WLAN Bandwdith and 3000 MIPS)
