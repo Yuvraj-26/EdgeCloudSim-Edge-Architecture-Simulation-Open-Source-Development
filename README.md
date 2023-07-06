@@ -61,39 +61,6 @@ percentage of failed tasks, service time, and VM utilisation
 
 4. **Handling the mobility of IoT devices** – To support mobility in wireless networks, low-latency task processing is vital. Task failure due to mobility serves as a key metric, requiring dynamic resource migration across edge nodes. For IoT devices, allocating sufficient computational resources ensures timely task completion before leaving the WLAN area. Efficient handoff of processing requests is recommended for highly mobile devices like driverless vehicles.
 
-# My Contributions
-1. The project investigated several types of edge architectures,
-principally single-tier, two-tier, and two-tier with Edge Orchestrator (EO)
-deployed in a specific domain to determine the effect of computational and networking system parameters on performance results.
-2. Experiment results were formatted graphically into readable graphs for ease of interpretation.
-3. Created TaskProperty Class in TaskProperty module which is a custom class used in Load Generator Model to store tasks information (EdgeTask)
-4. Fixed major bugs to allow the simulator to work in the specific Edge Environment for a Facial recognition / Augmented reality application utilised by 350 devices. Thus, identifying if the architecture remains effective after increasing the number of users (load condition) substantially.
-5. Modified the EdgeCloudSim Sim logger to allow accurate and reliable simulation of two or more scalability parameters simultaneously.
- Permitting the investigation of both WLAN bandwidth and VM processing speed at the same time on each Edge architecture.
-6. Provided extensive research and evaluation of simulation results to explain Task migration among the Edge or Cloud VMs
-7. Generated valid simulation data using EdgeCloudSim, backed by a literature review of leading edge computing research, to provide valuable recommendations for future IoT applications.
-
-# Future Work
-1. Conducting further experiments using a wider combination of scalability parameters.
-2. Considering energy-aware edge server placement to improve scalability.
-3. Performing a reliability analysis of edge scenarios to understand the exact behaviour
-and impact of high mobility of IoT devices on edge infrastructure.
-4. A deeper analysis of simulation results for the edge servers and the cloud separately
-to realise instances where offloading to the cloud provides favourable performance.
-For instance, finding whether local processing, edge server offloading, or remote
-cloud server offloading provides enhanced performance.
-5. Further encompassing EdgeCloudSim to evaluate the computational cost of
-increasing scalability parameters.
-6. Utilising different edge orchestration policies to investigate better scalability.
-7. Evaluating the effect of different tasks sizes and task migration among edge nodes.
-8. Real-world software deployment to confirm the validity and reliability of simulation results.
-
-## Hypothesis Verification
-
-<p align="center">
-  <img src="/doc/images/hypothesis.jpg" width="65%">
-</p>
-
 
 ## Results and Graphs
 **Initial Experiment Results**
@@ -171,6 +138,40 @@ Or to run the simulation in parallel
 - a defines the number of processors
 - b defines the number of iterations performed 
 
+# My Contributions
+1. The project investigated several types of edge architectures, principally single-tier, two-tier, and two-tier with Edge Orchestrator (EO) deployed in a specific domain to determine the effect of computational and networking system parameters on performance results.
+
+2. Experiment results were formatted graphically into readable graphs for ease of interpretation.
+
+3. Created TaskProperty Class in TaskProperty module which is a custom class used in Load Generator Model to store tasks information (EdgeTask) 
+
+4. Fixed major bugs to allow the simulator to work in the specific Edge Environment for a Facial recognition / Augmented reality application utilised by 350 devices. Thus, identifying if the architecture remains effective after increasing the number of users (load condition) substantially.
+
+5. Modified the EdgeCloudSim Sim logger to allow accurate and reliable simulation of two or more scalability parameters simultaneously, permitting the investigation of both WLAN bandwidth and VM processing speed at the same time on each Edge architecture.
+
+6. Provided extensive research and evaluation of simulation results to explain Task migration among the Edge or Cloud VMs
+
+7. Generated valid simulation data using EdgeCloudSim, backed by a literature review of leading edge computing research, to provide valuable recommendations for future IoT applications.
+
+# Future Work
+1. Conducting further experiments using a wider combination of scalability parameters.
+
+2. Considering energy-aware edge server placement to improve scalability.
+
+3. Performing a reliability analysis of edge scenarios to understand the exact behaviour and impact of high mobility of IoT devices on edge infrastructure.
+
+4. A deeper analysis of simulation results for the edge servers and the cloud separately to realise instances where offloading to the cloud provides favourable performance.
+For instance, finding whether local processing, edge server offloading, or remote cloud server offloading provides enhanced performance.
+
+5. Further encompassing EdgeCloudSim to evaluate the computational cost of increasing scalability parameters.
+
+6. Utilising different edge orchestration policies to investigate better scalability.
+
+7. Evaluating the effect of different tasks sizes and task migration among edge nodes.
+
+8. Real-world software deployment to confirm the validity and reliability of simulation results.
+
+
 ## Ease of Use
 EdgeCloudSim reads parameters dynamically from the following files:
 - **config.properties:** Simulation settings are managed in configuration file
@@ -186,10 +187,11 @@ EdgeCloudSim reads parameters dynamically from the following files:
 At the end of each iteration, simulation results will be compressed in the *output/date/ite_n.tgz* files. When you extract these tgz files, you will see lots of log file in csv format. You can find matlab files which can plot graphics by using these files under *scripts/sample_application/matlab* folder. You can also write other scripts (e.g. python scripts) with the same manner of matlab plotter files.
 
 ## EdgeCloudSim Modified Source Files
-SOURCE FILES
-/edgecloudsim/applications/sample_app1
-MainApp.java DEFAULT
-SampleScenarioFactory.java DEFAULT
+
+**SOURCE FILES**
+
+/edgecloudsim/applications/sample_app1 | MainApp.java DEFAULT
+SampleScenarioFactory.java DEFAULT 
 /edgecloudsim/cloud_server
 CloudServerManager.java DEFAULT
 CloudVM.java DEFAULT
@@ -232,7 +234,7 @@ TaskProperty.java MODIFIED
 
 ## EdgeCloudSim  SCRIPTS
 
-Sample_app1 - Project Scripts
+**Sample_app1 - Project Scripts**
 
 out_folders store the simulation experiment results in the form of ite10 SIMRESULT files and ite10.log files. Each simulation experiment is averaged over 10 iterations.
 
