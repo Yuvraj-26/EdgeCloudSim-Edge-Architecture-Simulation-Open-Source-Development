@@ -188,24 +188,22 @@ At the end of each iteration, simulation results will be compressed in the *outp
 
 ## EdgeCloudSim Modified Source Files
 
-**SOURCE FILES**
-
-/edgecloudsim/applications/sample_app1
-
+**/edgecloudsim/applications/sample_app1**
 MainApp.java DEFAULT
 SampleScenarioFactory.java DEFAULT 
 
-/edgecloudsim/cloud_server 
+**/edgecloudsim/cloud_server **
 CloudServerManager.java DEFAULT
 CloudVM.java DEFAULT
 CloudVmAllocationPOlicy_Custom.java DEFAULT
 DefaultCloudServerManager.java DEFAULT
 
-/edgecloudsim/core
+**/edgecloudsim/core**
 Scenariofactory.java MODIFIED
 SimManager.java
 SimSettings.java
-/edgecloudsim/edge_client
+
+**/edgecloudsim/edge_client**
 mobile_processing_unit DEFAULT
 CpuUtilizationModelCustom.java MODIFIED
 DefaultMobileDeviceManger.java MODIFIED
