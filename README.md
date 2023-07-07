@@ -32,7 +32,7 @@ processing speed on the percentage of failed tasks.
 5. **Effect of WLAN bandwidth and VM processing speed**: This is designed to investigate the effect of increasing both WLAN bandwidth and VM processing speed on
 performance in terms of scalability.  
 
-## Hypthesis Confirmation
+## Hypothesis Confirmation
 
 The devised hypotheses for this empirical investigation are validated with the findings of the
 experiment.
