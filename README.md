@@ -9,12 +9,12 @@ IoT devices use **Artificial Intelligence** and **Machine Learning** to provide 
 Edge computing involves more complex architecture design; hence both computational and networking resources are analysed. In this investigation, EdgeCloudSim is utilised to investigate the effect of scalability parameters in an edge environment. A technical evaluation for each significant parameter identifies if the architecture remains
 effective after increasing the number of users (load condition) and resources. This project investigates the **scalability** of three edge architectures: **single-tier**, **two-tier**, and **two-tier with Edge Orchestrator (EO)** for a face recognition / augmented reality application that demands low latency and percentage of failed tasks.
 
-# EdgeCloudSim
+## EdgeCloudSim
 
 **EdgeCloudSim** provides a simulation environment specific to Edge Computing scenarios where it is possible to conduct experiments that considers both computational and networking resources. EdgeCloudSim is based on CloudSim but adds considerable functionality so that it can be efficiently used for Edge Computing scenarios. EdgeCloudSim is an open source tool and any contributions are welcome. If you want to contribute EdgeCloudSim, please check below feature list and the [contributing guidelines](/CONTRIBUTING.md). If you want to use EdgeCloudSim in your research work, please cite our paper [[3]](https://onlinelibrary.wiley.com/doi/abs/10.1002/ett.3493).
 
 
-# Experiment Design
+## Experiment Design
 
 The following stages outline the experiment design:
 
@@ -32,7 +32,7 @@ processing speed on the percentage of failed tasks.
 5. **Effect of WLAN bandwidth and VM processing speed**: This is designed to investigate the effect of increasing both WLAN bandwidth and VM processing speed on
 performance in terms of scalability.  
 
-# Hypthesis Confirmation
+## Hypthesis Confirmation
 
 The devised hypotheses for this empirical investigation are validated with the findings of the
 experiment.
@@ -153,7 +153,7 @@ Or to run the simulation in parallel
 
 7. Generated valid simulation data using EdgeCloudSim, backed by a literature review of leading edge computing research, to provide valuable recommendations for future IoT applications.
 
-# Future Work
+## Future Work
 1. Conducting further experiments using a wider combination of scalability parameters.
 
 2. Considering energy-aware edge server placement to improve scalability.
@@ -295,7 +295,7 @@ Click [here](https://youtu.be/SmQgRANWUts) to watch the video with brief informa
 * Adding probabilistic network failure model by considering the congestion or other parameters such as the distance between mobile device and the WiFi access point.
 * Visual tool for displaying the network topology
 
-# EdgeCloudSim: An Environment for Performance Evaluation of Edge Computing Systems
+## EdgeCloudSim: An Environment for Performance Evaluation of Edge Computing Systems
 
 EdgeCloudSim provides a modular architecture to provide support for a variety of crucial functionalities such as network modeling specific to WLAN and WAN, device mobility model, realistic and tunable load generator. As depicted in Figure 2, the current EdgeCloudSim version has five main modules available: Core Simulation, Networking, Load Generator, Mobility and Edge Orchestrator. To ease fast prototyping efforts, each module contains a default implementation that can be easily extended.
 
