@@ -50,7 +50,7 @@ tasks
 percentage of failed tasks, service time, and VM utilisation
 
 
-# Recommendations for Future Edge Architecture Design and implementation
+# Recommendations for Future Edge Architecture Design and implementation 
 
 1. **Edge Architecture scalability**  – The recommended edge architecture for a face recognition application in augmented reality is a two-tier architecture with EO. This architecture offers superior performance and scalability compared to other options. Under increased load conditions, the two-tier with EO consistently outperforms other architectures in terms of failed tasks and service time. While VM utilization is high due to other edge servers, it can be significantly reduced by adjusting scalability parameters.
 
